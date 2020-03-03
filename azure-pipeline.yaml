@@ -17,7 +17,7 @@ steps:
   inputs:
     version: '10.x'
 - task: Npm@1
-  displayName: Install Node Plant UML
+  displayName: Install Node Mermaid CLI
   inputs:
     command: 'custom'
     customCommand: 'install @mermaid-js/mermaid-cli -g' 
@@ -38,7 +38,7 @@ steps:
     targetType: 'inline'
     script: |
             $sourceRoot = "$Env:Build.SourcesDirectory"
-            Get-ChildItem $sourceDir -Recurse -Filter "*.puml" |
+            Get-ChildItem $sourceDir -Recurse -Filter "*.mmd" |
                 Foreach-Object   {
                     $fileWithPath = $_.Fullname         
                     $png =  Join-Path  -Path $_.DirectoryName -ChildPath ("{0}.png" -f $_.Basename ) 
